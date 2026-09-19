@@ -133,7 +133,7 @@ async function scanURL() {
 
         const response =
             await fetch(
-                "http://127.0.0.1:5000/scan/url",
+                "/scan/url",
                 {
                     method: "POST",
 
@@ -261,7 +261,7 @@ async function scanMessage() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/scan/text",
+            "/scan/text",
             {
                 method: "POST",
                 headers: {
@@ -324,7 +324,7 @@ async function scanEmail() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/scan/text",
+            "/scan/text",
             {
                 method: "POST",
                 headers: {
@@ -1062,7 +1062,7 @@ async function scanWebpage() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/scan/webpage",
+            "/scan/webpage",
             {
                 method: "POST",
                 headers: {
@@ -1175,7 +1175,7 @@ async function scanAPK() {
         formData.append("file", file);
 
         const response = await fetch(
-            "http://127.0.0.1:5000/scan/apk",
+            "/scan/apk",
             {
                 method: "POST",
                 body: formData
@@ -1264,7 +1264,7 @@ async function scanAPKURL() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/scan/apk-url",
+            "/scan/apk-url",
             {
                 method: "POST",
                 headers: {
