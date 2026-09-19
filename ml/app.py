@@ -5,7 +5,7 @@ import joblib
 import tempfile
 import os
 
-from webpage_analyzer import analyze_webpage
+from ml.webpage_analyzer import analyze_webpage
 from apk_analyzer import analyze_apk
 
 
