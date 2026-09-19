@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PhishGuard | AI Security Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+        PhishGuard
+    </div>
+
+    <nav>
+
+        <a href="#home" class="active">
+            🏠
+            <span>Dashboard</span>
+        </a>
+
+        <a href="#scanner">
+            🛡️
+            <span>Security Scanner</span>
+        </a>
+
+        <a href="#history">
+            📊
+            <span>Scan History</span>
+        </a>
+
+        <a href="#report">
+            📄
+            <span>Report Assistant</span>
+        </a>
+
+        <a href="#report-history">
+            🗂️
+            <span>Report History</span>
+        </a>
+
+        <div class="sidebar-divider"></div>
+
+        <a href="#how-to-use">
+            📖
+            <span>How to Use</span>
+        </a>
+
+        <a href="#safety">
+            🔐
+            <span>Safety Tips</span>
+        </a>
+
+        <a href="#about">
+            ℹ️
+            <span>About PhishGuard</span>
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main>
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<header class="topbar">
+
+    <div>
+        <strong>AI-Powered Security Protection</strong>
+    </div>
+
+    <div class="user-area">
+        <span>Protected Mode</span>
+        <div class="avatar">PG</div>
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            AI SECURITY PLATFORM
+        </div>
+
+        <h1>
+            Stay Safe.<br>
+            <span>Scan Before You Trust.</span>
+        </h1>
+
+        <p>
+            PhishGuard is a multi-layer AI security analyzer designed
+            to detect suspicious URLs, webpages, look-alike websites,
+            emails, messages and APK files.
+        </p>
+
+        <div class="hero-features">
+
+            <div class="hero-feature">
+                AI Analysis
+            </div>
+
+            <div class="hero-feature">
+                Multi-Layer Detection
+            </div>
+
+            <div class="hero-feature">
+                Risk Scoring
+            </div>
+
+            <div class="hero-feature">
+                Security Reports
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<div class="dashboard-grid">
+
+    <div class="main-column">
+
+        <!-- =================================================
+             SCANNER
+        ================================================= -->
+
+        <section id="scanner" class="scanner-card">
+
+            <h2 class="scanner-title">
+                🛡️ Security Scanner
+            </h2>
+
+            <p class="scanner-description">
+                Choose what you want to analyse. PhishGuard
+                checks multiple security signals before giving
+                a risk result.
+            </p>
+
+
+            <!-- SCANNER TABS -->
+
+            <div class="scanner-tabs">
+
+                <button type="button" class="active"
+                    onclick="showScanner('urlScanner')">
+                    🔗 URL
+                </button>
+
+                <button type="button"
+                    onclick="showScanner('messageScanner')">
+                    💬 Message
+                </button>
+
+                <button type="button"
+                    onclick="showScanner('emailScanner')">
+                    ✉️ Email
+                </button>
+
+                <button type="button"
+                    onclick="showScanner('webpageScanner')">
+                    🌐 Webpage
+                </button>
+
+                <button type="button"
+                    onclick="showScanner('apkScanner')">
+                    📱 APK
+                </button>
+
+                <button type="button"
+                    onclick="showScanner('apkLinkScanner')">
+                    🔗 APK Link
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 URL SCANNER
+            ================================================= -->
+
+            <div id="urlScanner" class="scanner-panel">
+
+                <h3>🔗 URL Scanner</h3>
+
+                <p>
+                    Analyse a website URL for suspicious
+                    and phishing indicators.
+                </p>
+
+                <div class="scan-input-row">
+
+                    <input
+                        type="text"
+                        id="urlInput"
+                        placeholder="Enter website URL">
+
+                    <button
+                        type="button"
+                        id="scanURLButton">
+                        Scan URL
+                    </button>
+
+                </div>
+
+                <div class="examples">
+
+                    <button type="button"
+                        onclick="document.getElementById('urlInput').value='https://example.com'">
+                        Safe Example
+                    </button>
+
+                    <button type="button"
+                        onclick="document.getElementById('urlInput').value='https://login-verify-account.example.com/urgent-password-verification'">
+                        Test Suspicious URL
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MESSAGE SCANNER
+            ================================================= -->
+
+            <div id="messageScanner"
+                 class="scanner-panel"
+                 style="display:none;">
+
+                <h3>💬 Message Scanner</h3>
+
+                <p>
+                    Paste a suspicious SMS, WhatsApp-style message
+                    or other text to analyse it.
+                </p>
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Paste your message here..."></textarea>
+
+                <br><br>
+
+                <button
+                    type="button"
+                    id="scanMessageButton">
+                    Scan Message
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 EMAIL SCANNER
+            ================================================= -->
+
+            <div id="emailScanner"
+                 class="scanner-panel"
+                 style="display:none;">
+
+                <h3>✉️ Email Scanner</h3>
+
+                <p>
+                    Check a sender email address for suspicious
+                    patterns.
+                </p>
+
+                <input
+                    type="text"
+                    id="emailInput"
+                    placeholder="Enter sender email">
+
+                <br><br>
+
+                <button
+                    type="button"
+                    id="scanEmailButton">
+                    Check Email
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 WEBPAGE SCANNER
+            ================================================= -->
+
+            <div id="webpageScanner"
+                 class="scanner-panel"
+                 style="display:none;">
+
+                <h3>🌐 Webpage & Look-Alike Scanner</h3>
+
+                <p>
+                    Analyse webpage content, domain signals and
+                    look-alike website indicators.
+                </p>
+
+                <input
+                    type="text"
+                    id="webpageURLInput"
+                    placeholder="Enter webpage URL">
+
+                <br><br>
+
+                <button
+                    type="button"
+                    id="scanWebpageButton">
+                    Scan Webpage
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 APK SCANNER
+            ================================================= -->
+
+            <div id="apkScanner"
+                 class="scanner-panel"
+                 style="display:none;">
+
+                <h3>📱 APK Security Scanner</h3>
+
+                <p>
+                    Upload an Android APK for static security
+                    analysis. The APK is not installed or executed.
+                </p>
+
+                <input
+                    type="file"
+                    id="apkFileInput"
+                    accept=".apk">
+
+                <br><br>
+
+                <button
+                    type="button"
+                    id="scanAPKButton">
+                    Scan APK
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 APK LINK SCANNER
+            ================================================= -->
+
+            <div id="apkLinkScanner"
+                 class="scanner-panel"
+                 style="display:none;">
+
+                <h3>🔗 APK Link Scanner</h3>
+
+                <p>
+                    Analyse a downloadable APK link safely
+                    without installing the application.
+                </p>
+
+                <input
+                    type="text"
+                    id="apkURLInput"
+                    placeholder="Paste APK download link">
+
+                <br><br>
+
+                <button
+                    type="button"
+                    id="scanAPKURLButton">
+                    Scan APK Link
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESULT
+            ================================================= -->
+
+            <div id="result" class="result-card">
+
+                <h3>
+                    🛡️ Scan Result
+                </h3>
+
+                <p id="resultStatus">
+                    No scan performed yet.
+                </p>
+
+                <p id="riskScore"></p>
+
+                <div id="reasons"></div>
+
+                <br>
+
+                <button
+                    id="reportButton"
+                    onclick="generateReport()"
+                    style="display:none;">
+                    📄 Generate Report
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SECURITY FEATURES
+        ================================================= -->
+
+        <section class="section">
+
+            <h2>
+                Why PhishGuard?
+            </h2>
+
+            <p class="section-description">
+                Multiple security layers work together instead
+                of depending only on HTTPS.
+            </p>
+
+            <div class="security-features">
+
+                <div class="security-feature">
+                    <div class="icon">🔗</div>
+                    <strong>URL Analysis</strong>
+                    <p>Domain and URL signals</p>
+                </div>
+
+                <div class="security-feature">
+                    <div class="icon">🌐</div>
+                    <strong>Webpage Analysis</strong>
+                    <p>Look-alike detection</p>
+                </div>
+
+                <div class="security-feature">
+                    <div class="icon">✉️</div>
+                    <strong>Text Analysis</strong>
+                    <p>Email and message scanning</p>
+                </div>
+
+                <div class="security-feature">
+                    <div class="icon">📱</div>
+                    <strong>APK Analysis</strong>
+                    <p>Static APK security checks</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HOW TO USE
+        ================================================= -->
+
+        <section id="how-to-use"
+                 class="section">
+
+            <h2>
+                📖 How to Use PhishGuard
+            </h2>
+
+            <p class="section-description">
+                Follow these simple steps to check suspicious
+                digital content.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="how-to-card">
+
+                    <h3>01. Choose a Scanner</h3>
+
+                    <p>
+                        Select URL, Message, Email, Webpage,
+                        APK or APK Link scanner.
+                    </p>
+
+                </div>
+
+                <div class="how-to-card">
+
+                    <h3>02. Enter the Content</h3>
+
+                    <p>
+                        Paste the URL or message, enter the
+                        email, upload an APK or provide an APK link.
+                    </p>
+
+                </div>
+
+                <div class="how-to-card">
+
+                    <h3>03. Start the Scan</h3>
+
+                    <p>
+                        Click the relevant scan button and
+                        allow PhishGuard AI to analyse it.
+                    </p>
+
+                </div>
+
+                <div class="how-to-card">
+
+                    <h3>04. Check the Result</h3>
+
+                    <p>
+                        Review the risk score, status and
+                        security reasons.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SAFETY TIPS
+        ================================================= -->
+
+        <section id="safety"
+                 class="section">
+
+            <h2>
+                🔐 Safety Tips
+            </h2>
+
+            <p class="section-description">
+                Simple habits can help you stay safer online.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <h3>🔍 Check Before You Click</h3>
+
+                    <p>
+                        Analyse unfamiliar links before opening
+                        or entering sensitive information.
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <h3>🌐 Don't Trust HTTPS Alone</h3>
+
+                    <p>
+                        HTTPS protects the connection, but it does
+                        not automatically prove that a website is genuine.
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <h3>🔑 Protect Sensitive Information</h3>
+
+                    <p>
+                        Never share passwords, OTPs or financial
+                        information with suspicious websites or messages.
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <h3>📱 Be Careful With APK Files</h3>
+
+                    <p>
+                        Avoid installing applications from unknown
+                        sources and scan suspicious APK files first.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================= -->
+
+        <section id="about"
+                 class="section">
+
+            <h2>
+                ℹ️ About PhishGuard
+            </h2>
+
+            <p class="section-description">
+                A multi-layer AI security analyzer for modern
+                digital threats.
+            </p>
+
+            <div class="about-grid">
+
+                <div class="about-card">
+
+                    <h3>🛡️ Our Purpose</h3>
+
+                    <p>
+                        PhishGuard helps users identify suspicious
+                        digital content before interacting with it.
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+
+                    <h3>🤖 AI-Powered Analysis</h3>
+
+                    <p>
+                        Machine-learning models and security rules
+                        analyse different types of digital content.
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+
+                    <h3>🔎 Multi-Layer Detection</h3>
+
+                    <p>
+                        PhishGuard analyses URLs, webpages,
+                        look-alike websites, emails, messages and APKs.
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+
+                    <h3>📊 Risk-Based Results</h3>
+
+                    <p>
+                        Each scan produces a risk score and
+                        supporting security reasons.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REPORT ASSISTANT
+        ================================================= -->
+
+        <section id="report"
+                 class="section">
+
+            <h2>
+                📄 Report Assistant
+            </h2>
+
+            <p class="section-description">
+                Generate a report from a suspicious scan and
+                keep it available in Report History.
+            </p>
+
+            <div class="report-card">
+
+                <div id="reportContent">
+                    No report generated yet.
+                </div>
+
+                <button
+                    id="sendReportButton"
+                    onclick="sendReport()"
+                    style="display:none;">
+                    🚨 Send Report
+                </button>
+
+                <button
+                    id="officialComplaintButton"
+                    onclick="openOfficialComplaint()"
+                    style="display:none;">
+                    🌐 Submit Official Complaint
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SCAN HISTORY
+        ================================================= -->
+
+        <section id="history"
+                 class="section">
+
+            <h2>
+                📊 Scan History
+            </h2>
+
+            <p class="section-description">
+                View previous URL, email, message, webpage and
+                other security scans.
+            </p>
+
+            <div id="historyList"
+                 class="history-card">
+
+                No scan history available.
+
+            </div>
+
+            <br>
+
+            <button
+                type="button"
+                onclick="clearScanHistory()">
+                🗑️ Clear Scan History
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             REPORT HISTORY
+        ================================================= -->
+
+        <section id="report-history"
+                 class="section">
+
+            <h2>
+                📄 Report History
+            </h2>
+
+            <p class="section-description">
+                View reports generated from suspicious scans.
+            </p>
+
+            <div id="reportHistoryList"
+                 class="history-card">
+
+                No report history available.
+
+            </div>
+
+            <div id="reportViewer"
+                 class="report-viewer">
+            </div>
+
+            <br>
+
+            <button
+                type="button"
+                onclick="clearReportHistory()">
+                🗑️ Clear Report History
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         RIGHT SIDE QUICK SCAN
+    ===================================================== -->
+
+    <aside class="right-column">
+
+        <div class="quick-scan">
+
+            <h3>
+                ⚡ Quick Scan
+            </h3>
+
+            <p>
+                Choose a scanner to get started quickly.
+            </p>
+
+
+            <button
+                class="quick-scan-item"
+                type="button"
+                onclick="showScanner('urlScanner')">
+
+                <div class="quick-icon">
+                    🔗
+                </div>
+
+                <div class="quick-text">
+                    <strong>Scan URL</strong>
+                    <span>Check suspicious links</span>
+                </div>
+
+            </button>
+
+
+            <button
+                class="quick-scan-item"
+                type="button"
+                onclick="showScanner('messageScanner')">
+
+                <div class="quick-icon">
+                    💬
+                </div>
+
+                <div class="quick-text">
+                    <strong>Scan Message</strong>
+                    <span>Analyse suspicious text</span>
+                </div>
+
+            </button>
+
+
+            <button
+                class="quick-scan-item"
+                type="button"
+                onclick="showScanner('emailScanner')">
+
+                <div class="quick-icon">
+                    ✉️
+                </div>
+
+                <div class="quick-text">
+                    <strong>Check Email</strong>
+                    <span>Analyse sender information</span>
+                </div>
+
+            </button>
+
+
+            <button
+                class="quick-scan-item"
+                type="button"
+                onclick="showScanner('webpageScanner')">
+
+                <div class="quick-icon">
+                    🌐
+                </div>
+
+                <div class="quick-text">
+                    <strong>Scan Webpage</strong>
+                    <span>Detect look-alike signs</span>
+                </div>
+
+            </button>
+
+
+            <button
+                class="quick-scan-item"
+                type="button"
+                onclick="showScanner('apkScanner')">
+
+                <div class="quick-icon">
+                    📱
+                </div>
+
+                <div class="quick-text">
+                    <strong>Scan APK</strong>
+                    <span>Static security analysis</span>
+                </div>
+
+            </button>
+
+
+            <button
+                class="quick-scan-item"
+                type="button"
+                onclick="showScanner('apkLinkScanner')">
+
+                <div class="quick-icon">
+                    🔗
+                </div>
+
+                <div class="quick-text">
+                    <strong>Scan APK Link</strong>
+                    <span>Analyse APK download links</span>
+                </div>
+
+            </button>
+
+        </div>
+
+
+        <br>
+
+
+        <!-- QUICK SAFETY CARD -->
+
+        <div class="quick-scan">
+
+            <h3>
+                🔐 Stay Protected
+            </h3>
+
+            <p>
+                Remember these basic security rules.
+            </p>
+
+            <div class="info-card">
+
+                <h3>✓ Think Before You Click</h3>
+
+                <p>
+                    Check unfamiliar links before interacting
+                    with them.
+                </p>
+
+            </div>
+
+            <br>
+
+            <div class="info-card">
+
+                <h3>✓ Verify the Domain</h3>
+
+                <p>
+                    A professional-looking website does not
+                    always mean it is genuine.
+                </p>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>🛡️ PhishGuard</strong>
+
+    <p>
+        AI-Powered Phishing URL Detector & Security Analyzer
+    </p>
+
+    <p>
+        Built for educational and cybersecurity awareness purposes.
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     SMALL UI SCRIPT
+     This only switches scanner panels.
+     Existing script.js remains untouched.
+===================================================== -->
+
+<script>
+
+function showScanner(scannerId) {
+
+    const scanners = [
+        "urlScanner",
+        "messageScanner",
+        "emailScanner",
+        "webpageScanner",
+        "apkScanner",
+        "apkLinkScanner"
+    ];
+
+    scanners.forEach(function(id) {
+
+        const element = document.getElementById(id);
+
+        if (element) {
+            element.style.display =
+                id === scannerId ? "block" : "none";
+        }
+
+    });
+
+    const scanner = document.getElementById("scanner");
+
+    if (scanner) {
+        scanner.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+
+}
+
+</script>
+
+
+<!-- Existing PhishGuard functionality -->
+<script src="script.js"></script>
+
+</body>
+</html>

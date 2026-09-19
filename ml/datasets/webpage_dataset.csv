@@ -1,0 +1,17 @@
+url,html,label
+https://example.com,<html><body><h1>Welcome to Example</h1><p>Normal information page.</p></body></html>,safe
+https://example.com/about,<html><body><h1>About Us</h1><p>Company information and contact details.</p></body></html>,safe
+https://example.com/contact,<html><body><h1>Contact</h1><p>Contact our support team.</p></body></html>,safe
+https://example.com/news,<html><body><h1>Latest News</h1><p>Read our latest updates.</p></body></html>,safe
+https://example.com/login,<html><body><h1>Sign In</h1><form><input type="password"></form></body></html>,safe
+https://example.com/help,<html><body><h1>Help Center</h1><p>Find answers to common questions.</p></body></html>,safe
+https://example.com/account,<html><body><h1>Account</h1><p>Manage your account settings.</p></body></html>,safe
+https://example.com/services,<html><body><h1>Services</h1><p>Explore available services.</p></body></html>,safe
+https://example.com,<html><body><h1>Urgent! Verify Now</h1><form><input type="password"></form></body></html>,suspicious
+https://example.com/login,<html><body><h1>Your account is suspended</h1><p>Verify now immediately.</p><form><input type="password"></form></body></html>,suspicious
+https://example.com/verify,<html><body><h1>Security Alert</h1><p>Act now to verify your account.</p><form><input type="password"></form></body></html>,suspicious
+https://example.com/payment,<html><body><h1>Urgent Payment Verification</h1><p>Confirm your details immediately.</p><form><input type="password"></form></body></html>,suspicious
+https://example.com/secure,<html><body><h1>Final Warning</h1><p>Your account will be blocked. Verify now.</p><form><input type="password"></form></body></html>,suspicious
+https://example.com/account,<html><body><h1>Congratulations</h1><p>You won a reward. Act now immediately.</p><form><input type="password"></form></body></html>,suspicious
+https://example.com/update,<html><body><h1>Urgent Account Update</h1><p>Confirm your information immediately.</p><form><input type="password"></form></body></html>,suspicious
+https://example.com/confirm,<html><body><h1>Verify Now</h1><p>Limited time. Act immediately.</p><form><input type="password"></form></body></html>,suspicious

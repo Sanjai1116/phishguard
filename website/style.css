@@ -1,0 +1,1166 @@
+/* =========================================================
+   PHISHGUARD — FINAL PROFESSIONAL SECURITY DASHBOARD
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background: #111827;
+    color: #e5e7eb;
+    line-height: 1.6;
+    letter-spacing: 0.1px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 245px;
+    height: 100vh;
+
+    background: #0b1220;
+    border-right: 1px solid #263247;
+
+    padding: 28px 18px;
+    z-index: 1000;
+}
+
+.sidebar-logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #ffffff;
+
+    padding: 0 14px 28px;
+    letter-spacing: -0.5px;
+}
+
+.sidebar-logo::before {
+    content: "🛡️ ";
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 13px 14px;
+
+    color: #aeb9ca;
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #1b2940;
+    color: #ffffff;
+}
+
+.sidebar-divider {
+    height: 1px;
+    background: #263247;
+    margin: 15px 8px;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+    margin-left: 245px;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+    height: 72px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 42px;
+
+    background: #111827;
+    border-bottom: 1px solid #263247;
+
+    position: sticky;
+    top: 0;
+    z-index: 900;
+}
+
+.topbar strong {
+    color: #cbd5e1;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #24344e;
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    margin: 30px 38px 28px;
+
+    min-height: 330px;
+
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(59, 130, 246, 0.20),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #17243a,
+            #111c2e 55%,
+            #16243b
+        );
+
+    border: 1px solid #2b3b55;
+
+    display: flex;
+    align-items: center;
+
+    padding: 55px;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    padding: 6px 12px;
+    margin-bottom: 16px;
+
+    border-radius: 20px;
+
+    background: #1d304d;
+    color: #7dd3fc;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+
+    color: #ffffff;
+
+    margin-bottom: 22px;
+
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: #60a5fa;
+}
+
+.hero p {
+    max-width: 680px;
+
+    color: #aebbd0;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+.hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hero-feature {
+    padding: 8px 13px;
+
+    border: 1px solid #33445e;
+    border-radius: 20px;
+
+    background: rgba(15, 23, 42, 0.45);
+
+    color: #cbd5e1;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DASHBOARD GRID
+========================================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 300px;
+
+    gap: 25px;
+
+    padding: 0 38px 50px;
+}
+
+.main-column {
+    min-width: 0;
+}
+
+.right-column {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   COMMON SECTION
+========================================================= */
+
+.section {
+    margin-top: 28px;
+
+    padding: 30px;
+
+    background: #151f31;
+
+    border: 1px solid #27364d;
+
+    border-radius: 18px;
+}
+
+.section h2 {
+    color: #ffffff;
+
+    font-size: 23px;
+    font-weight: 750;
+
+    margin-bottom: 8px;
+
+    letter-spacing: -0.3px;
+}
+
+.section-description {
+    color: #91a0b6;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================================================
+   SCANNER
+========================================================= */
+
+.scanner-card {
+    background: #151f31;
+
+    border: 1px solid #2a3a52;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+.scanner-title {
+    font-size: 25px;
+
+    color: #ffffff;
+
+    margin-bottom: 8px;
+}
+
+.scanner-description {
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   SCANNER TABS
+========================================================= */
+
+.scanner-tabs {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 22px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #29384e;
+}
+
+.scanner-tabs button {
+    border: 1px solid #34445c;
+
+    background: #111a2a;
+
+    color: #9eacc0;
+
+    padding: 10px 15px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.scanner-tabs button:hover,
+.scanner-tabs button.active {
+    background: #2563eb;
+    border-color: #3b82f6;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SCANNER PANEL
+========================================================= */
+
+.scanner-panel {
+    padding-top: 5px;
+}
+
+.scanner-panel h3 {
+    color: #f8fafc;
+
+    font-size: 19px;
+
+    margin-bottom: 7px;
+}
+
+.scanner-panel p {
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 17px;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+
+    background: #0e1726;
+
+    border: 1px solid #34445c;
+
+    color: #f1f5f9;
+
+    border-radius: 10px;
+
+    padding: 13px 15px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #3b82f6;
+
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #66758b;
+}
+
+textarea {
+    min-height: 135px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+input[type="file"] {
+    cursor: pointer;
+    color: #9aa9bd;
+}
+
+
+/* =========================================================
+   SCAN INPUT ROW
+========================================================= */
+
+.scan-input-row {
+    display: flex;
+
+    gap: 10px;
+
+    align-items: stretch;
+}
+
+.scan-input-row input {
+    flex: 1;
+}
+
+.scan-input-row button {
+    min-width: 125px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+    border: none;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+button:hover {
+    background: #3b82f6;
+
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   EXAMPLES
+========================================================= */
+
+.examples {
+    display: flex;
+
+    gap: 9px;
+
+    flex-wrap: wrap;
+
+    margin-top: 13px;
+}
+
+.examples button {
+    background: #1c293c;
+
+    border: 1px solid #33445c;
+
+    color: #aebbd0;
+
+    font-size: 11px;
+
+    padding: 7px 11px;
+}
+
+.examples button:hover {
+    background: #263852;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   RESULT CARD
+========================================================= */
+
+.result-card {
+    margin-top: 28px;
+
+    padding: 23px;
+
+    border-radius: 15px;
+
+    background: #0d1625;
+
+    border: 1px solid #2d3d55;
+}
+
+.result-card h3 {
+    color: #ffffff;
+
+    font-size: 18px;
+
+    margin-bottom: 14px;
+}
+
+#resultStatus {
+    font-weight: 750;
+
+    font-size: 16px;
+
+    margin-bottom: 7px;
+}
+
+#riskScore {
+    color: #cbd5e1;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 13px;
+}
+
+#reasons {
+    color: #9eacc0;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SECURITY FEATURES
+========================================================= */
+
+.security-features {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 13px;
+}
+
+.security-feature {
+    padding: 20px;
+
+    background: #101a2a;
+
+    border: 1px solid #293950;
+
+    border-radius: 13px;
+}
+
+.security-feature .icon {
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.security-feature strong {
+    display: block;
+
+    color: #f1f5f9;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+.security-feature p {
+    color: #8291a7;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   INFO GRID
+========================================================= */
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.info-card,
+.how-to-card,
+.about-card {
+    padding: 21px;
+
+    background: #101a2a;
+
+    border: 1px solid #293950;
+
+    border-radius: 13px;
+}
+
+.info-card h3,
+.how-to-card h3,
+.about-card h3 {
+    color: #eaf0f8;
+
+    font-size: 15px;
+
+    margin-bottom: 8px;
+}
+
+.info-card p,
+.how-to-card p,
+.about-card p {
+    color: #8f9eb3;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ABOUT GRID
+========================================================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   QUICK SCAN
+========================================================= */
+
+.quick-scan {
+    background: #151f31;
+
+    border: 1px solid #293950;
+
+    border-radius: 18px;
+
+    padding: 23px;
+
+    position: sticky;
+    top: 95px;
+}
+
+.quick-scan h3 {
+    color: #ffffff;
+
+    font-size: 18px;
+
+    margin-bottom: 6px;
+}
+
+.quick-scan > p {
+    color: #8998ae;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+}
+
+.quick-scan-item {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px;
+
+    margin-bottom: 9px;
+
+    text-align: left;
+
+    background: #101a2a;
+
+    border: 1px solid #2b3b52;
+
+    border-radius: 11px;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.quick-scan-item:hover {
+    background: #1a2940;
+
+    border-color: #3b82f6;
+
+    transform: translateX(2px);
+}
+
+.quick-icon {
+    width: 37px;
+    height: 37px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #1c304d;
+
+    font-size: 18px;
+}
+
+.quick-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.quick-text strong {
+    color: #e9eef6;
+
+    font-size: 13px;
+}
+
+.quick-text span {
+    color: #78889f;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   REPORT
+========================================================= */
+
+.report-card {
+    padding: 22px;
+
+    background: #0f1928;
+
+    border: 1px solid #293950;
+
+    border-radius: 13px;
+}
+
+#reportContent {
+    color: #aebbd0;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+
+    margin-bottom: 18px;
+}
+
+.report-card button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.history-card {
+    max-height: 380px;
+
+    overflow-y: auto;
+
+    padding: 4px;
+}
+
+.history-item {
+    background: #101a2a;
+
+    border: 1px solid #293950;
+
+    border-radius: 11px;
+
+    padding: 16px;
+
+    margin-bottom: 10px;
+}
+
+.history-item strong {
+    color: #e7edf6;
+
+    font-size: 14px;
+}
+
+.history-item p {
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+    word-break: break-word;
+}
+
+.history-item small {
+    display: block;
+
+    color: #65758c;
+
+    font-size: 10px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================================================
+   REPORT VIEWER
+========================================================= */
+
+.report-viewer {
+    margin-top: 18px;
+}
+
+.report-viewer-card {
+    background: #0d1625;
+
+    border: 1px solid #30415a;
+
+    border-radius: 12px;
+
+    padding: 20px;
+}
+
+.report-viewer-card h3 {
+    color: #ffffff;
+
+    margin-bottom: 13px;
+}
+
+.report-viewer-card pre {
+    color: #aebbd0;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    margin-left: 245px;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    background: #0b1220;
+
+    border-top: 1px solid #263247;
+
+    color: #66758b;
+}
+
+footer strong {
+    color: #cbd5e1;
+
+    font-size: 16px;
+}
+
+footer p {
+    margin-top: 6px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b1220;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #34445b;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #48617f;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .sidebar {
+        width: 205px;
+    }
+
+    main {
+        margin-left: 205px;
+    }
+
+    footer {
+        margin-left: 205px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .right-column {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+    .quick-scan {
+        position: static;
+    }
+
+    .security-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .sidebar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        padding: 16px;
+
+        border-right: none;
+        border-bottom: 1px solid #263247;
+    }
+
+    .sidebar-logo {
+        padding: 5px 8px 15px;
+    }
+
+    .sidebar nav {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sidebar nav a {
+        font-size: 12px;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    footer {
+        margin-left: 0;
+    }
+
+    .topbar {
+        padding: 0 18px;
+    }
+
+    .hero {
+        margin: 20px 16px;
+
+        padding: 35px 25px;
+
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .dashboard-grid {
+        padding: 0 16px 35px;
+    }
+
+    .scanner-card,
+    .section {
+        padding: 22px;
+    }
+
+    .scan-input-row {
+        flex-direction: column;
+    }
+
+    .scan-input-row button {
+        width: 100%;
+    }
+
+    .security-features,
+    .info-grid,
+    .about-grid,
+    .right-column {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-scan {
+        position: static;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .sidebar nav {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .scanner-tabs {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .scanner-tabs button {
+        width: 100%;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+}

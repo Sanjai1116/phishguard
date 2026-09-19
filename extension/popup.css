@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 340px;
+    background: #f5f7fb;
+    color: #1f2937;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.subtitle {
+    margin: 6px 0 18px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.status {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background: #e8f5e9;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.stats {
+    display: flex;
+    gap: 10px;
+}
+
+.card {
+    flex: 1;
+    padding: 15px 10px;
+    border-radius: 12px;
+    background: white;
+    text-align: center;
+}
+
+.card span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.card small {
+    color: #6b7280;
+    font-size: 11px;
+}
+
+.result {
+    margin-top: 15px;
+    padding: 14px;
+    border-radius: 10px;
+    background: white;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.tip {
+    margin-top: 15px;
+    color: #6b7280;
+    font-size: 11px;
+    line-height: 1.4;
+}

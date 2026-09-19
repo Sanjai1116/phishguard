@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🛡️ PhishGuard</h1>
+        <p class="subtitle">Phishing Link Protection</p>
+
+        <div class="status" id="status">
+            Checking page...
+        </div>
+
+        <div class="stats">
+            <div class="card">
+                <span id="totalLinks">0</span>
+                <small>Links Scanned</small>
+            </div>
+
+            <div class="card">
+                <span id="suspiciousLinks">0</span>
+                <small>Suspicious</small>
+            </div>
+        </div>
+
+        <div class="result" id="result">
+            No scan completed yet.
+        </div>
+
+        <button id="scanButton">🔍 Scan Again</button>
+
+        <p class="tip">
+            💡 Never enter passwords or bank details on suspicious websites.
+        </p>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
