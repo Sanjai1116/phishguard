@@ -6,7 +6,7 @@ import tempfile
 import os
 
 from ml.webpage_analyzer import analyze_webpage
-from apk_analyzer import analyze_apk
+from ml.apk_analyzer import analyze_apk
 
 
 app = Flask(__name__)
