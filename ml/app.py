@@ -38,7 +38,7 @@ def home():
     })
 
 
-@app.route("/scan/url", methods=["POST"])
+@app.route("/api/scan/url", methods=["POST"])
 def scan_url():
     data = request.get_json(silent=True) or {}
     url = data.get("url", "").strip()
@@ -73,7 +73,7 @@ def scan_url():
     })
 
 
-@app.route("/scan/text", methods=["POST"])
+@app.route("/api/scan/text", methods=["POST"])
 def scan_text():
     data = request.get_json(silent=True) or {}
     text = data.get("text", "").strip()
@@ -107,7 +107,7 @@ def scan_text():
     })
 
 
-@app.route("/scan/webpage", methods=["POST"])
+@app.route("/api/scan/webpage", methods=["POST"])
 def scan_webpage():
 
     data = request.get_json(silent=True) or {}
@@ -152,7 +152,7 @@ def scan_webpage():
             "message": "Unable to fetch or analyse this webpage."
         }), 502
 
-@app.route("/scan/apk", methods=["POST"])
+@app.route("/api/scan/apk", methods=["POST"])
 def scan_apk():
     if "file" not in request.files:
         return jsonify({
@@ -198,7 +198,7 @@ def scan_apk():
             os.remove(temp_path)
 
             
-@app.route("/scan/apk-url", methods=["POST"])
+@app.route("/api/scan/apk-url", methods=["POST"])
 def scan_apk_url():
     import requests
 
