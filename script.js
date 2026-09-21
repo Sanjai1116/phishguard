@@ -133,7 +133,7 @@ async function scanURL() {
 
         const response =
             await fetch(
-                "http://127.0.0.1:5000/api/scan/url",
+                "/api/scan/url",
                 {
                     method: "POST",
 
@@ -214,12 +214,13 @@ async function scanURL() {
             lastScanInput,
             lastResult
         );
+
         const reportButton = document.getElementById("reportButton");
 
-if (reportButton) {
-    reportButton.style.display =
-        lastResult.suspicious ? "inline-block" : "none";
-}
+        if (reportButton) {
+            reportButton.style.display =
+                lastResult.suspicious ? "inline-block" : "none";
+        }
 
     }
 
@@ -261,7 +262,7 @@ async function scanMessage() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/api/scan/text",
+            "/api/scan/text",
             {
                 method: "POST",
                 headers: {
@@ -324,7 +325,7 @@ async function scanEmail() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/api/scan/text",
+            "/api/scan/text",
             {
                 method: "POST",
                 headers: {
@@ -1034,6 +1035,8 @@ document.addEventListener(
 
     }
 );
+
+
 async function scanWebpage() {
 
     console.log("scanWebpage function started");
@@ -1062,7 +1065,7 @@ async function scanWebpage() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/api/scan/webpage",
+            "/api/scan/webpage",
             {
                 method: "POST",
                 headers: {
@@ -1094,20 +1097,22 @@ async function scanWebpage() {
             (result.reasons || [])
                 .map(reason => "• " + reason)
                 .join("<br>");
-                       lastScanInput = url;
-lastScanType = "Webpage";
 
-lastResult = {
-    suspicious: result.risk_level !== "Low",
-    score: Number(result.risk_score) || 0,
-    reasons: result.reasons || []
-};
+        lastScanInput = url;
+        lastScanType = "Webpage";
 
-saveScanHistory(
-    lastScanType,
-    lastScanInput,
-    lastResult
-);
+        lastResult = {
+            suspicious: result.risk_level !== "Low",
+            score: Number(result.risk_score) || 0,
+            reasons: result.reasons || []
+        };
+
+        saveScanHistory(
+            lastScanType,
+            lastScanInput,
+            lastResult
+        );
+
     } catch (error) {
 
         console.error(
@@ -1145,10 +1150,15 @@ document.addEventListener(
 
     }
 );
+
+
 async function scanAPK() {
 
-    const fileInput = document.getElementById("apkFileInput");
-    const file = fileInput.files[0];
+    const fileInput =
+        document.getElementById("apkFileInput");
+
+    const file =
+        fileInput.files[0];
 
     if (!file) {
         alert("Please select an APK file.");
@@ -1164,43 +1174,66 @@ async function scanAPK() {
     const reasons =
         document.getElementById("reasons");
 
-    resultStatus.textContent = "🔄 Scanning APK...";
-    riskScore.textContent = "Analyzing...";
+    resultStatus.textContent =
+        "🔄 Scanning APK...";
+
+    riskScore.textContent =
+        "Analyzing...";
+
     reasons.innerHTML =
         "PhishGuard is analysing the APK safely...";
 
     try {
 
-        const formData = new FormData();
-        formData.append("file", file);
+        const formData =
+            new FormData();
 
-        const response = await fetch(
-            "http://127.0.0.1:5000/api/scan/apk",
-            {
-                method: "POST",
-                body: formData
-            }
+        formData.append(
+            "file",
+            file
         );
 
-        const data = await response.json();
+        const response =
+            await fetch(
+                "/api/scan/apk",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
 
-        if (!response.ok || data.status !== "success") {
+        const data =
+            await response.json();
+
+        if (
+            !response.ok ||
+            data.status !== "success"
+        ) {
+
             throw new Error(
-                data.message || "APK scan failed."
+                data.message ||
+                "APK scan failed."
             );
         }
 
-        const result = data.result;
+        const result =
+            data.result;
 
         resultStatus.textContent =
-            "🛡️ " + result.risk_level + " Risk";
+            "🛡️ " +
+            result.risk_level +
+            " Risk";
 
         riskScore.textContent =
-            result.risk_score + "/100";
+            result.risk_score +
+            "/100";
 
         reasons.innerHTML =
             (result.reasons || [])
-                .map(reason => "• " + reason)
+                .map(
+                    reason =>
+                        "• " + reason
+                )
                 .join("<br>");
 
     } catch (error) {
@@ -1213,7 +1246,8 @@ async function scanAPK() {
         resultStatus.textContent =
             "❌ APK Scan Failed";
 
-        riskScore.textContent = "--";
+        riskScore.textContent =
+            "--";
 
         reasons.innerHTML =
             error.message;
@@ -1226,9 +1260,12 @@ document.addEventListener(
     function () {
 
         const apkButton =
-            document.getElementById("scanAPKButton");
+            document.getElementById(
+                "scanAPKButton"
+            );
 
         if (apkButton) {
+
             apkButton.addEventListener(
                 "click",
                 scanAPK
@@ -1237,64 +1274,99 @@ document.addEventListener(
 
     }
 );
+
+
 async function scanAPKURL() {
 
     const url =
-        document.getElementById("apkURLInput").value.trim();
+        document.getElementById(
+            "apkURLInput"
+        ).value.trim();
 
     if (!url) {
-        alert("Please enter an APK download link.");
+
+        alert(
+            "Please enter an APK download link."
+        );
+
         return;
     }
 
     const resultStatus =
-        document.getElementById("resultStatus");
+        document.getElementById(
+            "resultStatus"
+        );
 
     const riskScore =
-        document.getElementById("riskScore");
+        document.getElementById(
+            "riskScore"
+        );
 
     const reasons =
-        document.getElementById("reasons");
+        document.getElementById(
+            "reasons"
+        );
 
-    resultStatus.textContent = "🔄 Scanning APK link...";
-    riskScore.textContent = "Analyzing...";
+    resultStatus.textContent =
+        "🔄 Scanning APK link...";
+
+    riskScore.textContent =
+        "Analyzing...";
+
     reasons.innerHTML =
         "PhishGuard is safely analysing the APK...";
 
     try {
 
-        const response = await fetch(
-            "http://127.0.0.1:5000/api/scan/apk-url",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    url: url
-                })
-            }
-        );
+        const response =
+            await fetch(
+                "/api/scan/apk-url",
+                {
+                    method: "POST",
 
-        const data = await response.json();
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
 
-        if (!response.ok || data.status !== "success") {
+                    body: JSON.stringify({
+                        url: url
+                    })
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if (
+            !response.ok ||
+            data.status !== "success"
+        ) {
+
             throw new Error(
-                data.message || "APK link scan failed."
+                data.message ||
+                "APK link scan failed."
             );
         }
 
-        const result = data.result;
+        const result =
+            data.result;
 
         resultStatus.textContent =
-            "🛡️ " + result.risk_level + " Risk";
+            "🛡️ " +
+            result.risk_level +
+            " Risk";
 
         riskScore.textContent =
-            result.risk_score + "/100";
+            result.risk_score +
+            "/100";
 
         reasons.innerHTML =
             (result.reasons || [])
-                .map(reason => "• " + reason)
+                .map(
+                    reason =>
+                        "• " + reason
+                )
                 .join("<br>");
 
     } catch (error) {
@@ -1307,7 +1379,8 @@ async function scanAPKURL() {
         resultStatus.textContent =
             "❌ APK Link Scan Failed";
 
-        riskScore.textContent = "--";
+        riskScore.textContent =
+            "--";
 
         reasons.innerHTML =
             error.message;
@@ -1325,6 +1398,7 @@ document.addEventListener(
             );
 
         if (apkURLButton) {
+
             apkURLButton.addEventListener(
                 "click",
                 scanAPKURL
@@ -1333,18 +1407,24 @@ document.addEventListener(
 
     }
 );
-document.addEventListener("DOMContentLoaded", function () {
 
-    const scanWebpageButton =
-        document.getElementById("scanWebpageButton");
 
-    if (scanWebpageButton) {
-        scanWebpageButton.addEventListener(
-            "click",
-            scanWebpage
-        );
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const scanWebpageButton =
+            document.getElementById(
+                "scanWebpageButton"
+            );
+
+        if (scanWebpageButton) {
+
+            scanWebpageButton.addEventListener(
+                "click",
+                scanWebpage
+            );
+        }
+
     }
-
-});
-
-
+);
